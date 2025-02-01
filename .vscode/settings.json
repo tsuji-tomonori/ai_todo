@@ -95,4 +95,9 @@
     "git-graph.graph.style": "rounded", // ラウンドスタイルのグラフ表示
     "git-graph.repository.commits.showSignatureStatus": true, // コミット署名ステータスを表示
     "git-graph.maxDepthOfRepoSearch": 3, // リポジトリ検索の深さを制限
+    // Conventional Commits
+    "conventionalCommits.scopes": [ // スコープ
+        "backend",
+        "frontend",
+    ],
 }
