@@ -13,6 +13,8 @@
         "bradlc.vscode-tailwindcss",
         "stivo.tailwind-fold",
         "formulahendry.auto-rename-tag",
+        // Docker
+        "ms-azuretools.vscode-docker",
         // Markdown
         "yzhang.markdown-all-in-one",
         "shd101wyy.markdown-preview-enhanced",
