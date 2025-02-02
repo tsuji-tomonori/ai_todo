@@ -3,6 +3,11 @@ FROM python:3.12-slim-bullseye
 # Install uv.
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 
+# ここで PostgreSQL クライアントをインストール
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy the application into the container.
 COPY . /app
 
