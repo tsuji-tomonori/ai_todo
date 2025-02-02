@@ -16,6 +16,8 @@ components:
       volumeMounts:
         - name: docker-store
           path: /var/lib/docker
+      securityContext:
+        privileged: true
   - name: docker-store
     volume:
       size: 16Gi
