@@ -46,7 +46,7 @@ class TaskUpdate(BaseModel):
 
 
 class TaskResponse(BaseModel):
-    id: int
+    taskid: int
     name: str
     details: Optional[str]
 
