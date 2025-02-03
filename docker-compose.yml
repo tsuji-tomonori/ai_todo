@@ -10,20 +10,19 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/todos
     depends_on:
-      - db
-    volumes:
-      - ./api:/app
+      db:
+        condition: service_healthy
     networks:
       - app-network
 
   frontend:
     build:
-      context: ./frontend
+      context: ./web
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "2000:3000"
     volumes:
-      - ./frontend:/app
+      - ./web:/app
       - /app/node_modules
       - /app/.next
     depends_on:
@@ -43,6 +42,11 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
 
 volumes:
   postgres_data:
